@@ -11,4 +11,6 @@ This repository uses a sharded PRD to make collaboration easier. Use the links b
 
 A full, unsharded backup of the original PRD is available at `docs/PRD-full.md`.
 
+Frontend implementation requirement: follow the project frontend specification at `docs/FrontEnd Spec.md` (use TailwindCSS + Shadcn/UI, Framer Motion + Lottie, Satoshi + Inter fonts, and the motion tokens defined there).
+
 If you'd like different sharding (more/fewer files), tell me which sections to combine or split.

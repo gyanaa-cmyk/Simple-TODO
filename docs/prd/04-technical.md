@@ -17,6 +17,8 @@
 ## Frontend Frameworks
  React + Tailwind + Shadcn/UI + Framer Motion + Lottie.
 
+Frontend tokens and motion system MUST follow `docs/FrontEnd Spec.md` (fonts: Satoshi + Inter, motion tokens like `motion.fast|medium|slow`, design tokens and gradients). Frontend stories must reference the spec for visual and interaction consistency.
+
 ## Data Model
  Users, Sessions, Lists, Tasks, ListMembers, Reactions, Comments, Streaks.
 

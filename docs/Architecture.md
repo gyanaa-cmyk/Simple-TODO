@@ -23,6 +23,8 @@
 
 **Clients**: React (Web) / React Native (Mobile)
 - UI: Tailwind / shadcn/ui / Framer Motion / Lottie
+
+Frontend Implementation Requirement: The frontend must implement the visual system and motion tokens defined in `docs/FrontEnd Spec.md` (fonts, gradients, motion timing tokens, component interaction patterns). This ensures visual parity and predictable animations across Web and Mobile.
 - Data: TanStack Query for REST; small Zustand bridge for sockets
 
 **Backend**: Node.js (Fastify recommended) + `ws`

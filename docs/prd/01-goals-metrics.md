@@ -23,3 +23,4 @@
 ## Epics
 - Epic 1: Foundation & Core Infrastructure — `prd/epic-1-foundation-core-infrastructure.md` (establish infra, CI, guest auth, basic lists/tasks canary)
  - Epic 2: Architecture Implementation & Core Services — `prd/epic-2-architecture.md` (DB schema, WS rooms/presence, sessions, observability, deployment)
+ - Epic UI: UI Component Library & Canary — `prd/epic-ui-canary.md` (frontend tokens, scaffold, TaskCard, FAB, canary)
