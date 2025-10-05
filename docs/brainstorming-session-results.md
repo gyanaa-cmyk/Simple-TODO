@@ -61,18 +61,15 @@
     *   **Core Components:**
         *   `LoginPage`: A view for user login.
         *   `RegisterPage`: A view for new user registration.
-        *   `Header`: Clean header with app title, Logout button, and a `SearchBar`.
+        *   `Header`: Clean header with app title and Logout button.
         *   `TodoInputForm`: Input field and "Add Task" button.
-        *   `TodoList`: A drag-and-drop enabled container for all todo items.
-        *   `TodoItem`: The individual task item (title, checkbox, due date, edit/delete icons, drag handle).
+        *   `TodoList`: Container for all todo items.
+        *   `TodoItem`: The individual task item (title, checkbox, edit/delete icons).
         *   `FilterControls`: Buttons to filter by "All", "Active", "Completed".
         *   `Footer`: Displays a count of active items.
     *   **User Actions:**
         *   `login`, `register`, `logout`
         *   `addTodo`, `toggleTodoComplete`, `deleteTodo`, `editTodo`, `filterTodos`
-        *   `reorderTodos`: Drag-and-drop to re-sort tasks.
-        *   `setDueDate`: Add or change a task's due date.
-        *   `searchTodos`: Filter tasks by text content in real-time.
     *   **Styling & UI/UX:**
         *   **Aesthetic:** Modern, sleek, clean design ("Airbnb style").
         *   **Font:** Satoshi.
@@ -82,7 +79,7 @@
             *   **Iconography:** Simple, clean, lightweight line icons (e.g., Feather Icons or Heroicons).
             *   **Borders & Shadows:** Avoid harsh borders; use whitespace and subtle, soft box-shadows for depth.
         *   **Animations (using `framer-motion`):**
-            *   **List Animations:** Animate tasks smoothly on add/remove and reorder.
+            *   **List Animations:** Animate tasks smoothly on add/remove.
             *   **Micro-interactions:** Subtle feedback on hover/press for buttons and checkboxes.
             *   **State Transitions:** Smooth animations for state changes (e.g., strikethrough on task completion).
     *   **State Management:**
@@ -106,11 +103,10 @@
             *   `POST /api/auth/register`: Creates a new user.
             *   `POST /api/auth/login`: Authenticates a user and returns a JWT.
         *   **Todo Routes (Protected):**
-            *   `GET /api/todos`: Fetches all todos for the user. Can accept a search query parameter.
-            *   `POST /api/todos`: Creates a new todo. Handles `text`, `due_date`.
-            *   `PUT /api/todos/:id`: Updates a todo's `text`, `is_completed`, or `due_date`.
-            *   `POST /api/todos/reorder`: A batch endpoint to update the `position` of multiple todos at once.
-            *   `DELETE /api/todos/:id`: Deletes a specific todo.
+            *   `GET /api/todos`: Fetches all todo items for the authenticated user.
+            *   `POST /api/todos`: Creates a new todo item for the authenticated user.
+            *   `PUT /api/todos/:id`: Updates an existing todo for the authenticated user.
+            *   `DELETE /api/todos/:id`: Deletes a specific todo item for the authenticated user.
     *   **Code Structure:**
         *   Organize code into `routes`, `controllers`, and `services` for maintainability. Raw SQL queries will be handled in a dedicated data access layer.
 *   **Database Details:**
@@ -127,13 +123,6 @@
             *   `user_id`: `UUID` (Foreign Key to `users.id`).
             *   `text`: `TEXT` (Not Null).
             *   `is_completed`: `BOOLEAN` (Defaults to `false`).
-            *   `position`: `INTEGER` - For ordering the tasks.
-            *   `due_date`: `TIMESTAMPTZ` (Nullable) - The task's due date.
             *   `created_at`: `TIMESTAMPTZ`.
             *   `updated_at`: `TIMESTAMPTZ`.
     *   **Scripts Location:** All raw SQL schema and migration scripts will be located in the `packages/database` directory.
-*   **Infrastructure Details:**
-    *   **Hosting Environment:** Self-hosted on a private Kubernetes cluster.
-    *   **Container Registry:** A private container registry (e.g., Harbor, Docker Hub) will be used to store built Docker images.
-    *   **CI/CD:** GitHub Actions will build and push Docker images for the frontend and backend to the private registry.
-    *   **Deployment:** Kubernetes manifests (YAML) will define `Deployments` for services, and an `Ingress` to expose them. PostgreSQL will run as a `StatefulSet` using Persistent Volumes for data storage.
