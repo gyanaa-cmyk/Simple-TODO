@@ -387,6 +387,7 @@ Next step
 
 #### Example: Simple-TODO sharding
 - Shard `docs/prd.md` into smaller sections per epic/story using the CLI Tool.
+- Shard `docs/architecture.md` into smaller sections per epic/story using the CLI Tool.
 - Record the output directory path the tool prints so the Scrum Master can reference it.
 
 Deliverable for this phase: Sharded docs created by the CLI Tool (output paths as reported by the tool).
